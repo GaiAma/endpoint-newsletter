@@ -1,0 +1,43 @@
+{
+  "title": {
+    "translation": "Please confirm your newsletter subscription",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 118],
+      ["lib/handler-new-subscriber.js", 146],
+      ["src/lib/handler-new-subscriber.js", 85],
+      ["src/lib/handler-new-subscriber.js", 107]
+    ]
+  },
+  "note": {
+    "translation":
+      "If you received this email by mistake, simply delete it. You won't be subscribed if you don't click the confirmation link above.",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 120],
+      ["lib/handler-new-subscriber.js", 158],
+      ["src/lib/handler-new-subscriber.js", 87],
+      ["src/lib/handler-new-subscriber.js", 119]
+    ]
+  },
+  "ctaLabel": {
+    "translation": "Yes, confirm Subscription",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 149],
+      ["src/lib/handler-new-subscriber.js", 110]
+    ]
+  },
+  "orCopy": {
+    "translation": "or use the following link:",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 153],
+      ["src/lib/handler-new-subscriber.js", 114]
+    ]
+  },
+  "subject": {
+    "translation":
+      "GaiAma.org Newsletter: Please confirm your newsletter subscription",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 134],
+      ["src/lib/handler-new-subscriber.js", 95]
+    ]
+  }
+}

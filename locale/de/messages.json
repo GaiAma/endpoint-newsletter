@@ -1,0 +1,43 @@
+{
+  "title": {
+    "translation": "Bitte bestätige deine Anmeldung zu unserem Newsletter",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 118],
+      ["lib/handler-new-subscriber.js", 146],
+      ["src/lib/handler-new-subscriber.js", 85],
+      ["src/lib/handler-new-subscriber.js", 107]
+    ]
+  },
+  "note": {
+    "translation":
+      "Falls Sie diese E-Mail versehentlich erhalten haben, löschen Sie sie einfach. Sie werden nicht in unseren Verteiler eingetragen, wenn Sie nicht auf den Bestätigungs-Link klicken.",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 120],
+      ["lib/handler-new-subscriber.js", 158],
+      ["src/lib/handler-new-subscriber.js", 87],
+      ["src/lib/handler-new-subscriber.js", 119]
+    ]
+  },
+  "ctaLabel": {
+    "translation": "Ja, Anmeldung bestätigen",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 149],
+      ["src/lib/handler-new-subscriber.js", 110]
+    ]
+  },
+  "orCopy": {
+    "translation": "oder nutze folgenden Link:",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 153],
+      ["src/lib/handler-new-subscriber.js", 114]
+    ]
+  },
+  "subject": {
+    "translation":
+      "GaiAma.org Newsletter: Bitte bestätige deine E-Mail-Adresse",
+    "origin": [
+      ["lib/handler-new-subscriber.js", 134],
+      ["src/lib/handler-new-subscriber.js", 95]
+    ]
+  }
+}
