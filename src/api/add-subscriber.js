@@ -9,7 +9,6 @@ const addSubscriber = async ({ spark, email, lang, listId }) => {
       show_recipients: true,
     })
 
-    console.log(email, isExistingUser({ email, list }), list.recipients)
     if (isExistingUser({ email, list })) {
       return {
         code: 409,
@@ -34,7 +33,6 @@ const addSubscriber = async ({ spark, email, lang, listId }) => {
     }
 
     await spark.recipientLists.update(listId, newRecipientList)
-    // console.log(updates.results.total_rejected_recipients > 0)
 
     return { code: 200 }
   } catch (e) {
