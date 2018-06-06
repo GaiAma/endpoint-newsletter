@@ -23,22 +23,7 @@ export default ({ spark, listPrefix, i18n }) => async (req, res) => {
   try {
     const { email, lang: _lang = `en` } = await parser[type](req)
     const lang = sanitizeText(`${_lang}`)
-    const listId = `${listPrefix}-${lang}`
     i18n.activate(lang)
-
-    // if (await spark.recipientLists.get(listId))
-    // await spark.recipientLists.delete(listId)
-    // await spark.recipientLists.create({
-    //   id: listId,
-    //   name: listId,
-    //   recipients: [
-    //     {
-    //       address: {
-    //         email: `${cuid()}@test.com`,
-    //       },
-    //     },
-    //   ],
-    // })
 
     // block if disposable and no captcha filled
     // if (isDisposableEmail(email) && CAPTCHA_WRONG) {
@@ -72,12 +57,7 @@ export default ({ spark, listPrefix, i18n }) => async (req, res) => {
       throw new Error(verificationResult)
     }
 
-    return send(res, 200, {
-      msg: `OK`,
-      updated: await spark.recipientLists.get(listId, {
-        show_recipients: true,
-      }),
-    })
+    return send(res, 200, { msg: `OK` })
   } catch (error) {
     return send(res, 500, {
       msg: `ERROR`,
