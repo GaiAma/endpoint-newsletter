@@ -10,7 +10,7 @@
   },
   "note": {
     "translation":
-      "Falls Sie diese E-Mail versehentlich erhalten haben, löschen Sie sie einfach. Sie werden nicht in unseren Verteiler eingetragen, wenn Sie nicht auf den Bestätigungs-Link klicken.",
+      "Falls du diese E-Mail versehentlich erhalten hast, kannst du sie einfach löschen. Du wirst nicht in unseren Verteiler eingetragen, wenn du nicht auf den Bestätigungslink klickst.",
     "origin": [
       ["lib/handler-new-subscriber.js", 120],
       ["lib/handler-new-subscriber.js", 158],
