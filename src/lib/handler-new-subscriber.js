@@ -9,8 +9,6 @@ import contentType from 'content-type'
 import sanitizeText from './sanitize-text'
 import { sendVerification, addUpdateSubscriber } from '../api'
 
-const baseUrl = `https://www.gaiama.org`
-
 const getActionLink = ({ id, lang, type }) =>
   `https://gaiama-newsletter.now.sh/${type}/?id=${encodeURIComponent(
     id
@@ -105,7 +103,7 @@ function getTextEmail({ i18n, confirmationLink, unsubscribeLink, lang }) {
     ${confirmationLink}\n\n
     ${i18n.t`note`}\n
     ${unsubscribeLink}\n\n\n
-    ${i18n.t`privacyUrl`} | ${i18n.t`legalUrl`}
+    https://www.gaiama.org | ${i18n.t`privacyUrl`} | ${i18n.t`legalUrl`}
   `
 }
 
@@ -158,8 +156,8 @@ function getHtmlEmail({ i18n, confirmationLink, unsubscribeLink, lang }) {
 
         <mj-section>
           <mj-column>
-            <mj-navbar base-url="${baseUrl}${lang}" align="left">
-              <mj-navbar-link href="/">GaiAma.org</mj-navbar-link>
+            <mj-navbar align="left">
+              <mj-navbar-link href="https://www.gaiama.org">GaiAma.org</mj-navbar-link>
               <mj-navbar-link href="${i18n.t`privacyUrl`}">${i18n.t`privacyTitle`}</mj-navbar-link>
               <mj-navbar-link href="${i18n.t`legalUrl`}">${i18n.t`legalTitle`}</mj-navbar-link>
             </mj-navbar>

@@ -4,7 +4,7 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        101
+        99
       ],
       [
         "lib/handler-unsubscribe.js",
@@ -20,7 +20,7 @@
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        66
+        64
       ],
       [
         "src/lib/handler-unsubscribe.js",
@@ -41,11 +41,11 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        140
+        138
       ],
       [
         "lib/handler-new-subscriber.js",
-        173
+        171
       ],
       [
         "lib/handler-unsubscribe.js",
@@ -57,11 +57,11 @@
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        96
+        102
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        122
+        128
       ],
       [
         "src/lib/handler-unsubscribe.js",
@@ -78,11 +78,11 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        142
+        140
       ],
       [
         "lib/handler-new-subscriber.js",
-        196
+        194
       ],
       [
         "lib/handler-unsubscribe.js",
@@ -94,11 +94,11 @@
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        98
+        104
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        145
+        151
       ],
       [
         "src/lib/handler-unsubscribe.js",
@@ -111,44 +111,44 @@
     ]
   },
   "privacyUrl": {
-    "translation": "/datenschutz",
+    "translation": "https://www.gaiama.org/de/datenschutz",
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        144
+        142
       ],
       [
         "lib/handler-new-subscriber.js",
-        206
+        204
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        100
+        106
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        155
+        161
       ]
     ]
   },
   "legalUrl": {
-    "translation": "/impressum",
+    "translation": "https://www.gaiama.org/de/impressum",
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        144
+        142
       ],
       [
         "lib/handler-new-subscriber.js",
-        207
+        205
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        100
+        106
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        156
+        162
       ]
     ]
   },
@@ -157,7 +157,7 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        181
+        179
       ],
       [
         "lib/handler-unsubscribe.js",
@@ -169,7 +169,7 @@
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        130
+        136
       ],
       [
         "src/lib/handler-unsubscribe.js",
@@ -186,7 +186,7 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        188
+        186
       ],
       [
         "lib/handler-unsubscribe.js",
@@ -194,7 +194,7 @@
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        137
+        143
       ],
       [
         "src/lib/handler-unsubscribe.js",
@@ -207,11 +207,11 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        197
+        195
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        146
+        152
       ]
     ]
   },
@@ -220,11 +220,11 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        206
+        204
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        155
+        161
       ]
     ]
   },
@@ -233,11 +233,11 @@
     "origin": [
       [
         "lib/handler-new-subscriber.js",
-        207
+        205
       ],
       [
         "src/lib/handler-new-subscriber.js",
-        156
+        162
       ]
     ]
   }
