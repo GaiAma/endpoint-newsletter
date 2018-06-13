@@ -75,7 +75,8 @@ function getTextEmail({ i18n, link }) {
 }
 
 async function getHtmlEmail({ i18n, link }) {
-  const { html, errors } = await heml(`
+  try {
+    const { html, errors } = await heml(`
     <heml>
       <head>
         <subject>${i18n.t`subject`}</subject>
@@ -114,11 +115,14 @@ async function getHtmlEmail({ i18n, link }) {
     </heml>
   `)
 
-  if (errors.length) {
-    throw new Error(JSON.stringify(errors.join(`\n\n`)))
-  }
+    if (errors.length) {
+      throw new Error(JSON.stringify(errors.join(`\n\n`)))
+    }
 
-  return html
+    return html
+  } catch (error) {
+    return error
+  }
 }
 
 // const liste = require(`./subscribers.json`)
