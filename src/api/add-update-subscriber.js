@@ -1,18 +1,30 @@
 import { unionWith, eqBy, path } from 'ramda'
 import moment from 'moment'
-import cuid from 'cuid'
-import { isExistingUser } from './'
+import { getList, isExistingUser } from './'
 
-const addSubscriber = async ({ spark, email, lang, listId }) => {
+const addUpdateSubscriber = async ({
+  spark,
+  lang,
+  email,
+  listId,
+  id,
+  confirmed,
+}) => {
   try {
-    const { results: list } = await spark.recipientLists.get(listId, {
-      show_recipients: true,
-    })
+    const { results: list } = await getList({ spark, listId })
 
-    if (isExistingUser({ email, list })) {
+    const isExisting = isExistingUser({ id, email, list })
+    if (isExisting && !confirmed) {
       return {
         code: 409,
-        msg: `EXISTING_EMAIL`,
+        msg: isExisting,
+      }
+    }
+
+    if (!isExisting && confirmed) {
+      return {
+        code: 409,
+        msg: `NON_EXISTENT_EMAIL`,
       }
     }
 
@@ -20,11 +32,12 @@ const addSubscriber = async ({ spark, email, lang, listId }) => {
       recipients: unionWith(eqBy(path([`address`, `email`])), list.recipients, [
         {
           address: {
-            email,
+            email: isExisting ? isExisting.address.email : email,
           },
           metadata: {
             lang,
-            id: cuid(),
+            id,
+            confirmed,
             date: moment.utc().format(),
           },
           return_path: `newsletter@mail.gaiama.org`,
@@ -40,4 +53,4 @@ const addSubscriber = async ({ spark, email, lang, listId }) => {
   }
 }
 
-export default addSubscriber
+export default addUpdateSubscriber
