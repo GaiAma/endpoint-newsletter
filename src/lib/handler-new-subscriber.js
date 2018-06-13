@@ -84,10 +84,18 @@ export default ({ spark, listPrefix, i18n }) => async (req, res) => {
 
     return send(res, 200, { msg: `OK` })
   } catch (error) {
-    return send(res, 500, {
-      msg: `ERROR`,
-      error,
-    })
+    return send(
+      res,
+      500,
+      JSON.stringify(
+        {
+          msg: `ERROR`,
+          error,
+        },
+        null,
+        2
+      )
+    )
   }
 }
 

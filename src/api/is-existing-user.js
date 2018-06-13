@@ -3,7 +3,7 @@ const isExistingUser = ({ list, id, email }) => {
     x => x.metadata.id === id || x.address.email === email
   )
 
-  if (!result && !result.address) {
+  if (!result) {
     return null
   }
 

@@ -1,4 +1,4 @@
-export { default as addSubscriber } from './add-update-subscriber'
+export { default as addUpdateSubscriber } from './add-update-subscriber'
 export { default as sendVerification } from './send-verification'
 export { default as isExistingUser } from './is-existing-user'
 
