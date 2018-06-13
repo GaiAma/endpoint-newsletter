@@ -32,6 +32,7 @@
     "micro-nosniff": "^1.0.1",
     "micro-ratelimit": "^0.3.0",
     "microrouter": "^3.1.2",
+    "mjml": "^4.0.5",
     "moment-timezone": "^0.5.17",
     "ramda": "^0.25.0",
     "sanitize-html": "^1.18.2",
