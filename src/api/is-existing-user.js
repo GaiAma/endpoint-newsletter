@@ -1,17 +1,23 @@
 const isExistingUser = ({ list, id, email }) => {
-  const result = list.recipients.find(
+  const user = list.recipients.find(
     x => x.metadata.id === id || x.address.email === email
   )
 
-  if (!result) {
-    return null
+  if (!user) {
+    return {}
   }
 
-  if (result.metadata.confirmed) {
-    return `ALREADY_CONFIRMED`
+  if (user.metadata.confirmed) {
+    return {
+      user,
+      msg: `ALREADY_CONFIRMED`,
+    }
   }
 
-  return `NOT_CONFIRMED`
+  return {
+    user,
+    msg: `NOT_CONFIRMED`,
+  }
 }
 
 export default isExistingUser

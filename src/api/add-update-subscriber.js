@@ -13,15 +13,15 @@ const addUpdateSubscriber = async ({
   try {
     const { results: list } = await getList({ spark, listId })
 
-    const isExisting = isExistingUser({ id, email, list })
-    if (isExisting && !confirmed) {
+    const { user } = isExistingUser({ id, email, list })
+    if (user && !confirmed) {
       return {
         code: 409,
         msg: `NOT_CONFIRMED`,
       }
     }
 
-    if (!isExisting && confirmed) {
+    if (!user && confirmed) {
       return {
         code: 409,
         msg: `NON_EXISTENT_EMAIL`,
@@ -32,7 +32,7 @@ const addUpdateSubscriber = async ({
       recipients: unionWith(eqBy(path([`address`, `email`])), list.recipients, [
         {
           address: {
-            email: isExisting ? isExisting.address.email : email,
+            email: user ? user.address.email : email,
           },
           metadata: {
             lang,
@@ -48,8 +48,8 @@ const addUpdateSubscriber = async ({
     await spark.recipientLists.update(listId, newRecipientList)
 
     return { code: 200 }
-  } catch (e) {
-    return { code: 500 }
+  } catch (error) {
+    return { code: 500, msg: error }
   }
 }
 
