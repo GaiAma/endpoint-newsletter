@@ -10,6 +10,7 @@ const sendVerification = async ({
       options: {
         open_tracking: false,
         click_tracking: false,
+        transactional: true,
       },
       content: {
         from: {
