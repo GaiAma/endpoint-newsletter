@@ -35,7 +35,7 @@ export default ({ spark, listPrefix }) => async (req, res) => {
     //   }),
     // })
 
-    const Location = `https://www.gaiama.org/?ref=subscribed-to-newsletter`
+    const Location = `https://www.gaiama.org/${lang}/?ref=subscribed-to-newsletter`
     res.writeHead(302, { Location })
     return res.end()
   } catch (error) {
