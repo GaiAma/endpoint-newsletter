@@ -23,15 +23,15 @@ const sendVerification = async ({
       recipients: [
         {
           address: {
-            email: email,
+            email,
           },
         },
       ],
     })
 
     return true
-  } catch (e) {
-    return e
+  } catch (error) {
+    return error
   }
 }
 
