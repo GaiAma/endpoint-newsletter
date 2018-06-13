@@ -17,7 +17,7 @@ const addUpdateSubscriber = async ({
     if (isExisting && !confirmed) {
       return {
         code: 409,
-        msg: isExisting,
+        msg: `NOT_CONFIRMED`,
       }
     }
 

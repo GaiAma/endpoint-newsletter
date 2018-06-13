@@ -1,43 +1,244 @@
 {
+  "subject": {
+    "translation": "GaiAma.org Newsletter: Bitte bestätige deine E-Mail-Adresse",
+    "origin": [
+      [
+        "lib/handler-new-subscriber.js",
+        101
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        60
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        109
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        140
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        66
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        38
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        74
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        105
+      ]
+    ]
+  },
   "title": {
     "translation": "Bitte bestätige deine Anmeldung zu unserem Newsletter",
     "origin": [
-      ["lib/handler-new-subscriber.js", 118],
-      ["lib/handler-new-subscriber.js", 146],
-      ["src/lib/handler-new-subscriber.js", 85],
-      ["src/lib/handler-new-subscriber.js", 107]
+      [
+        "lib/handler-new-subscriber.js",
+        140
+      ],
+      [
+        "lib/handler-new-subscriber.js",
+        173
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        93
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        121
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        96
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        122
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        64
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        86
+      ]
     ]
   },
   "note": {
-    "translation":
-      "Falls du diese E-Mail versehentlich erhalten hast, kannst du sie einfach löschen. Du wirst nicht in unseren Verteiler eingetragen, wenn du nicht auf den Bestätigungslink klickst.",
+    "translation": "Falls du diese E-Mail versehentlich erhalten hast, kannst du den folgenden Link klicken um die vollständig aus unserer Liste auszutragen, danach kannst du diese E-Mail löschen.",
     "origin": [
-      ["lib/handler-new-subscriber.js", 120],
-      ["lib/handler-new-subscriber.js", 158],
-      ["src/lib/handler-new-subscriber.js", 87],
-      ["src/lib/handler-new-subscriber.js", 119]
+      [
+        "lib/handler-new-subscriber.js",
+        142
+      ],
+      [
+        "lib/handler-new-subscriber.js",
+        196
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        95
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        137
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        98
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        145
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        66
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        102
+      ]
+    ]
+  },
+  "privacyUrl": {
+    "translation": "/datenschutz",
+    "origin": [
+      [
+        "lib/handler-new-subscriber.js",
+        144
+      ],
+      [
+        "lib/handler-new-subscriber.js",
+        206
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        100
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        155
+      ]
+    ]
+  },
+  "legalUrl": {
+    "translation": "/impressum",
+    "origin": [
+      [
+        "lib/handler-new-subscriber.js",
+        144
+      ],
+      [
+        "lib/handler-new-subscriber.js",
+        207
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        100
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        156
+      ]
     ]
   },
   "ctaLabel": {
     "translation": "Ja, Anmeldung bestätigen",
     "origin": [
-      ["lib/handler-new-subscriber.js", 149],
-      ["src/lib/handler-new-subscriber.js", 110]
+      [
+        "lib/handler-new-subscriber.js",
+        181
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        124
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        127
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        130
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        89
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        92
+      ]
     ]
   },
   "orCopy": {
     "translation": "oder nutze folgenden Link:",
     "origin": [
-      ["lib/handler-new-subscriber.js", 153],
-      ["src/lib/handler-new-subscriber.js", 114]
+      [
+        "lib/handler-new-subscriber.js",
+        188
+      ],
+      [
+        "lib/handler-unsubscribe.js",
+        132
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        137
+      ],
+      [
+        "src/lib/handler-unsubscribe.js",
+        97
+      ]
     ]
   },
-  "subject": {
-    "translation":
-      "GaiAma.org Newsletter: Bitte bestätige deine E-Mail-Adresse",
+  "unsubscribe": {
+    "translation": "Abmelden",
     "origin": [
-      ["lib/handler-new-subscriber.js", 134],
-      ["src/lib/handler-new-subscriber.js", 95]
+      [
+        "lib/handler-new-subscriber.js",
+        197
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        146
+      ]
+    ]
+  },
+  "privacyTitle": {
+    "translation": "Datenschutz",
+    "origin": [
+      [
+        "lib/handler-new-subscriber.js",
+        206
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        155
+      ]
+    ]
+  },
+  "legalTitle": {
+    "translation": "Impressum",
+    "origin": [
+      [
+        "lib/handler-new-subscriber.js",
+        207
+      ],
+      [
+        "src/lib/handler-new-subscriber.js",
+        156
+      ]
     ]
   }
 }

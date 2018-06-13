@@ -1,13 +1,11 @@
 import { filter } from 'ramda'
-import { isExistingUser } from './'
+import { getList, isExistingUser } from './'
 
 const removeByEmail = email => filter(x => x.address.email !== email)
 
 const removeSubscriber = async ({ spark, email, lang, listId }) => {
   try {
-    const { results: list } = await spark.recipientLists.get(listId, {
-      show_recipients: true,
-    })
+    const { results: list } = await getList({ spark, listId })
 
     if (!isExistingUser({ email, list })) {
       return {
