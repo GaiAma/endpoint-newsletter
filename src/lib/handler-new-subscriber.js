@@ -148,14 +148,16 @@ function getHtmlEmail({ i18n, confirmationLink, unsubscribeLink, lang }) {
 
         <mj-section>
           <mj-column>
-            <mj-text font-size="14px" line-height="17px">${i18n.t`orCopy`}</mj-text>
-            <mj-text font-size="14px" line-height="17px">${confirmationLink}</mj-text>
+            <mj-text font-size="13px" line-height="20px">
+              ${i18n.t`orCopy`}<br/>
+              ${confirmationLink}
+            </mj-text>
           </mj-column>
         </mj-section>
 
         <mj-section>
           <mj-column>
-            <mj-text font-size="15px">
+            <mj-text font-size="13px">
               ${i18n.t`note`}
               <a href="${unsubscribeLink}">${i18n.t`unsubscribe`}</a>
             </mj-text>
