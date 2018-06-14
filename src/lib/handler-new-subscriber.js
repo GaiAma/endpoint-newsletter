@@ -39,9 +39,9 @@ export default ({ spark, listPrefix, i18n }) => async (req, res) => {
     }
 
     const listId = `${listPrefix}-${lang}`
-    const id = cuid()
+    let id = cuid()
 
-    const { msg, code } = await addUpdateSubscriber({
+    const { msg, code, user } = await addUpdateSubscriber({
       spark,
       listId,
       id,
@@ -52,6 +52,10 @@ export default ({ spark, listPrefix, i18n }) => async (req, res) => {
 
     if (code !== 200 && msg !== `NOT_CONFIRMED`) {
       return send(res, code, { msg })
+    }
+
+    if (user) {
+      id = user.metadata.id
     }
 
     const confirmationLink = getActionLink({ id, lang, type: `confirm` })
@@ -126,7 +130,11 @@ function getHtmlEmail({ i18n, confirmationLink, unsubscribeLink, lang }) {
             <mj-text>GaiAma.org Newsletter</mj-text>
 
             <mj-text>${i18n.t`title`}</mj-text>
+          </mj-column>
+        </mj-section>
 
+        <mj-section full-width="full-width">
+          <mj-column>
             <mj-button
               font-size="16px"
               font-family="helvetica"
@@ -140,8 +148,8 @@ function getHtmlEmail({ i18n, confirmationLink, unsubscribeLink, lang }) {
 
         <mj-section>
           <mj-column>
-            <mj-text>${i18n.t`orCopy`}</mj-text>
-            <mj-text>${confirmationLink}</mj-text>
+            <mj-text font-size="14px" line-height="17px">${i18n.t`orCopy`}</mj-text>
+            <mj-text font-size="14px" line-height="17px">${confirmationLink}</mj-text>
           </mj-column>
         </mj-section>
 
@@ -156,7 +164,7 @@ function getHtmlEmail({ i18n, confirmationLink, unsubscribeLink, lang }) {
 
         <mj-section>
           <mj-column>
-            <mj-navbar align="left">
+            <mj-navbar>
               <mj-navbar-link href="https://www.gaiama.org">GaiAma.org</mj-navbar-link>
               <mj-navbar-link href="${i18n.t`privacyUrl`}">${i18n.t`privacyTitle`}</mj-navbar-link>
               <mj-navbar-link href="${i18n.t`legalUrl`}">${i18n.t`legalTitle`}</mj-navbar-link>

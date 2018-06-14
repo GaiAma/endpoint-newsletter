@@ -7,11 +7,7 @@ import middlewares from './lib/middlewares'
 import handlerConfirmation from './lib/handler-confirmation'
 import handlerNewSubscriber from './lib/handler-new-subscriber'
 // import handlerUnsubscribe from './lib/handler-unsubscribe'
-process.on(`unhandledRejection`, (reason, p) => {
-  // console.log(`Unhandled Rejection at: Promise`, p, `reason:`, reason)
-  // application specific logging, throwing an error, or other logic here
-  console.log(`unhandled`)
-})
+
 const spark = new Sparkpost()
 const listPrefix = `gaiama-newsletter`
 
