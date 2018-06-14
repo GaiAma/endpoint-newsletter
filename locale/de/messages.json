@@ -28,7 +28,7 @@
   },
   "note": {
     "translation":
-      "Falls du diese E-Mail versehentlich erhalten hast, kannst du den folgenden Link klicken um die vollständig aus unserer Liste auszutragen, danach kannst du diese E-Mail löschen.",
+      "Falls du diese E-Mail versehentlich erhalten hast, kannst du den folgenden Link klicken um dich vollständig aus unserer Liste auszutragen, danach kannst du diese E-Mail löschen.",
     "origin": [
       ["lib/handler-new-subscriber.js", 140],
       ["lib/handler-new-subscriber.js", 194],
