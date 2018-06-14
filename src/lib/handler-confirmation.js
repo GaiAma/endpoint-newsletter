@@ -3,7 +3,8 @@ import sanitizeText from './sanitize-text'
 import { addUpdateSubscriber } from '../api'
 
 export default ({ spark, listPrefix }) => async (req, res) => {
-  const { id, lang: _lang } = req.query
+  const { id: _id, lang: _lang } = req.query
+  const id = sanitizeText(_id)
   const lang = sanitizeText(decodeURIComponent(_lang))
 
   if (!id) {
@@ -29,7 +30,7 @@ export default ({ spark, listPrefix }) => async (req, res) => {
       return send(res, code, { msg })
     }
 
-    const Location = `https://www.gaiama.org/${lang}/?ref=subscribed-to-newsletter`
+    const Location = `https://www.gaiama.org/${lang}/?ref=subscribed`
     res.writeHead(302, { Location })
     return res.end()
   } catch (error) {

@@ -6,7 +6,7 @@ import localeDe from './locale/de/messages'
 import middlewares from './lib/middlewares'
 import handlerConfirmation from './lib/handler-confirmation'
 import handlerNewSubscriber from './lib/handler-new-subscriber'
-// import handlerUnsubscribe from './lib/handler-unsubscribe'
+import handlerUnsubscribe from './lib/handler-unsubscribe'
 
 const spark = new Sparkpost()
 const listPrefix = `gaiama-newsletter`
@@ -31,15 +31,15 @@ const handleConfirmation = get(
   })
 )
 
-// const handleUnsubscribe = get(
-//   `/unsubscribe`,
-//   handlerUnsubscribe({
-//     spark,
-//     listPrefix,
-//     i18n,
-//   })
-// )
+const handleUnsubscribe = get(
+  `/unsubscribe/`,
+  handlerUnsubscribe({
+    spark,
+    listPrefix,
+    i18n,
+  })
+)
 
 export default middlewares(
-  router(handleNewSubscription, handleConfirmation /*, handleUnsubscribe*/)
+  router(handleNewSubscription, handleConfirmation, handleUnsubscribe)
 )

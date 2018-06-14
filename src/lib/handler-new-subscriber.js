@@ -24,7 +24,7 @@ export default ({ spark, listPrefix, i18n }) => async (req, res) => {
 
   try {
     const { email, lang: _lang = `en` } = await parser[type](req)
-    const lang = sanitizeText(`${_lang}`)
+    const lang = sanitizeText(_lang)
     i18n.activate(lang)
 
     // block if disposable and no captcha filled
