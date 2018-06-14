@@ -15,7 +15,7 @@ const sendVerification = async ({
       content: {
         from: {
           name: process.env.ENDPOINT_CONTACT_NAME,
-          email: process.env.ENDPOINT_SPARKPOST_EMAIL,
+          email: process.env.ENDPOINT_NEWSLETTER_MAIL,
         },
         subject,
         text: messagePlainText,
