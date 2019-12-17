@@ -85,7 +85,7 @@ export default async (req, res) => {
       throw new Error(verificationResult)
     }
 
-    return res.json({ msg: `OK` })
+    return res.status(200).json({ msg: `OK` })
   } catch (error) {
     return res.status(500).json({ msg: `ERROR`, error })
   }
