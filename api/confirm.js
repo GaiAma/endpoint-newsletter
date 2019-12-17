@@ -1,3 +1,4 @@
+import { send } from 'micro'
 import Sparkpost from 'sparkpost'
 import sanitizeText from '../lib/sanitize-text'
 import { addUpdateSubscriber } from '../lib/add-update-subscriber.js'
@@ -8,6 +9,10 @@ const listPrefix = `gaiama-newsletter`
 
 export default middlewares(async function confirm(req, res) {
   try {
+    if (req.method === `OPTIONS`) {
+      return send(res, 200, `ok!`)
+    }
+
     const { id: _id, lang: _lang } = req.query
     const id = sanitizeText(_id)
 

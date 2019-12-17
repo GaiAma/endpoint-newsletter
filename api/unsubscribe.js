@@ -1,3 +1,4 @@
+import { send } from 'micro'
 import { filter } from 'ramda'
 import sanitizeText from './sanitize-text'
 import { getList } from './get-list.js'
@@ -12,6 +13,10 @@ const removeByEmail = email => filter(x => x.address.email !== email)
 
 export default middlewares(async function unsubscribe(req, res) {
   try {
+    if (req.method === `OPTIONS`) {
+      return send(res, 200, `ok!`)
+    }
+
     const { id: _id, lang: _lang } = req.query
     const id = sanitizeText(_id)
     const lang = sanitizeText(decodeURIComponent(_lang))

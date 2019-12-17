@@ -1,3 +1,4 @@
+import { send } from 'micro'
 import cuid from 'cuid'
 import mjml2html from 'mjml'
 import { isEmail } from 'validator'
@@ -20,8 +21,11 @@ const getActionLink = ({ id, lang, type }) =>
   )}&lang=${encodeURIComponent(lang)}`
 
 export default middlewares(async (req, res) => {
-
   try {
+    if (req.method === `OPTIONS`) {
+      return send(res, 200, `ok!`)
+    }
+
     const { email, lang: _lang = `en` } = req.body
 
     const lang = sanitizeText(_lang)
