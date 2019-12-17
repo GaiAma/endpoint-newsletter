@@ -1,8 +1,8 @@
 import { send } from 'micro'
 import { filter } from 'ramda'
-import sanitizeText from './sanitize-text'
-import { getList } from './get-list.js'
-import { isExistingUser } from './is-existing-user.js'
+import { sanitizeText } from '../lib/sanitize-text'
+import { getList } from '../lib/get-list.js'
+import { isExistingUser } from '../lib/is-existing-user.js'
 import Sparkpost from 'sparkpost'
 import { middlewares } from '../lib/middlewares'
 
