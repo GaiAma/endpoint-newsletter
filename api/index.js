@@ -1,11 +1,11 @@
-import { json } from 'micro'
+// import { json } from 'micro'
 import cuid from 'cuid'
 import mjml2html from 'mjml'
 import { isEmail } from 'validator'
 import Sparkpost from 'sparkpost'
 import { i18n } from '@lingui/core'
-import urlEncodedParse from 'urlencoded-body-parser'
-import contentType from 'content-type'
+// import urlEncodedParse from 'urlencoded-body-parser'
+// import contentType from 'content-type'
 import localeEn from '../locale/en/messages'
 import localeDe from '../locale/de/messages'
 import sanitizeText from '../lib/sanitize-text'
@@ -22,16 +22,20 @@ const getActionLink = ({ id, lang, type }) =>
     id
   )}&lang=${encodeURIComponent(lang)}`
 
-const parser = {
-  'application/json': json,
-  'application/x-www-form-urlencoded': urlEncodedParse,
-}
+// const parser = {
+//   'application/json': json,
+//   'application/x-www-form-urlencoded': urlEncodedParse,
+// }
 
 export default async (req, res) => {
-  const { type = `application/json` } = contentType.parse(req)
+  // const { type = `application/json` } = contentType.parse(req)
+  // console.log(`Content-Type`, req.headers)
+  // const type = `application/json`
 
   try {
-    const { email, lang: _lang = `en` } = await parser[type](req)
+    // const { email, lang: _lang = `en` } = await parser[type](req)
+    const { email, lang: _lang = `en` } = req.body
+
     const lang = sanitizeText(_lang)
     i18n.activate(lang)
 
@@ -87,7 +91,7 @@ export default async (req, res) => {
 
     return res.status(200).json({ msg: `OK` })
   } catch (error) {
-    return res.status(500).json({ msg: `ERROR`, error })
+    return res.status(error.statusCode || 500).json({ msg: `ERROR`, error })
   }
 }
 
