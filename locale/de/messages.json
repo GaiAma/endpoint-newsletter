@@ -1,103 +1,12 @@
 {
-  "subject": {
-    "translation":
-      "GaiAma.org Newsletter: Bitte bestätige deine E-Mail-Adresse",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 99],
-      ["lib/handler-unsubscribe.js", 60],
-      ["lib/handler-unsubscribe.js", 109],
-      ["lib/handler-unsubscribe.js", 140],
-      ["src/lib/handler-new-subscriber.js", 64],
-      ["src/lib/handler-unsubscribe.js", 38],
-      ["src/lib/handler-unsubscribe.js", 74],
-      ["src/lib/handler-unsubscribe.js", 105]
-    ]
-  },
-  "title": {
-    "translation": "Bitte bestätige deine Anmeldung zu unserem Newsletter",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 138],
-      ["lib/handler-new-subscriber.js", 171],
-      ["lib/handler-unsubscribe.js", 93],
-      ["lib/handler-unsubscribe.js", 121],
-      ["src/lib/handler-new-subscriber.js", 102],
-      ["src/lib/handler-new-subscriber.js", 128],
-      ["src/lib/handler-unsubscribe.js", 64],
-      ["src/lib/handler-unsubscribe.js", 86]
-    ]
-  },
-  "note": {
-    "translation":
-      "Falls du diese E-Mail versehentlich erhalten hast, kannst du den folgenden Link klicken um dich vollständig aus unserer Liste auszutragen, danach kannst du diese E-Mail löschen.",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 140],
-      ["lib/handler-new-subscriber.js", 194],
-      ["lib/handler-unsubscribe.js", 95],
-      ["lib/handler-unsubscribe.js", 137],
-      ["src/lib/handler-new-subscriber.js", 104],
-      ["src/lib/handler-new-subscriber.js", 151],
-      ["src/lib/handler-unsubscribe.js", 66],
-      ["src/lib/handler-unsubscribe.js", 102]
-    ]
-  },
-  "privacyUrl": {
-    "translation": "https://www.gaiama.org/de/datenschutz",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 142],
-      ["lib/handler-new-subscriber.js", 204],
-      ["src/lib/handler-new-subscriber.js", 106],
-      ["src/lib/handler-new-subscriber.js", 161]
-    ]
-  },
-  "legalUrl": {
-    "translation": "https://www.gaiama.org/de/impressum",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 142],
-      ["lib/handler-new-subscriber.js", 205],
-      ["src/lib/handler-new-subscriber.js", 106],
-      ["src/lib/handler-new-subscriber.js", 162]
-    ]
-  },
-  "ctaLabel": {
-    "translation": "Ja, Anmeldung bestätigen",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 179],
-      ["lib/handler-unsubscribe.js", 124],
-      ["lib/handler-unsubscribe.js", 127],
-      ["src/lib/handler-new-subscriber.js", 136],
-      ["src/lib/handler-unsubscribe.js", 89],
-      ["src/lib/handler-unsubscribe.js", 92]
-    ]
-  },
-  "orCopy": {
-    "translation":
-      "Falls der Button nicht funktioniert, kannst du den folgenden Link zur Bestätigung nutzen:",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 186],
-      ["lib/handler-unsubscribe.js", 132],
-      ["src/lib/handler-new-subscriber.js", 143],
-      ["src/lib/handler-unsubscribe.js", 97]
-    ]
-  },
-  "unsubscribe": {
-    "translation": "Abmelden",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 195],
-      ["src/lib/handler-new-subscriber.js", 152]
-    ]
-  },
-  "privacyTitle": {
-    "translation": "Datenschutz",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 204],
-      ["src/lib/handler-new-subscriber.js", 161]
-    ]
-  },
-  "legalTitle": {
-    "translation": "Impressum",
-    "origin": [
-      ["lib/handler-new-subscriber.js", 205],
-      ["src/lib/handler-new-subscriber.js", 162]
-    ]
-  }
+  "subject": "GaiAma.org Newsletter: Bitte bestätige deine E-Mail-Adresse",
+  "title": "Bitte bestätige deine Anmeldung zu unserem Newsletter",
+  "note": "Falls du diese E-Mail versehentlich erhalten hast, kannst du den folgenden Link klicken um dich vollständig aus unserer Liste auszutragen, danach kannst du diese E-Mail löschen.",
+  "privacyUrl": "https://www.gaiama.org/de/datenschutz",
+  "legalUrl": "https://www.gaiama.org/de/impressum",
+  "ctaLabel": "Ja, Anmeldung bestätigen",
+  "orCopy": "Falls der Button nicht funktioniert, kannst du den folgenden Link zur Bestätigung nutzen:",
+  "unsubscribe": "Abmelden",
+  "privacyTitle": "Datenschutz",
+  "legalTitle": "Impressum"
 }

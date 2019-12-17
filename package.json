@@ -1,50 +1,29 @@
 {
   "name": "gaiama-endpoint-newsletter",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Newsletter endpoint for GaiAma.org website",
   "main": "index.js",
   "author": "CanRau <cansrau@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "micro",
-    "//dev": "export $(cat ../.env | grep -v ^# | xargs) && micro-dev",
+    "local": "now dev --debug",
     "transpile": "NODE_ENV=production babel src --out-dir .",
-    "watch": "yarn transpile --watch",
-    "build": "yarn lang:compile",
+    "build": "echo 'DONE! 😎'",
     "deploy": "now -t $NOW_TOKEN --npm",
     "alias": "now alias -t $NOW_TOKEN",
-    "now:cleanup": "now rm gaiama-endpoint-newsletter --safe --yes",
-    "lang:add": "lingui add-locale",
-    "lang:extract": "lingui extract",
-    "lang:compile": "lingui compile"
+    "now:cleanup": "now rm gaiama-endpoint-newsletter --safe --yes"
   },
   "dependencies": {
-    "@lingui/cli": "^2.9.0",
-    "@lingui/core": "^2.9.0",
     "autolinker": "^3.11.1",
-    "content-type": "^1.0.4",
     "cuid": "^2.1.8",
-    "helmet": "^3.21.2",
-    "heml": "^1.1.3",
-    "is-disposable-email": "^0.0.1",
-    "micro": "^9.3.4",
-    "micro-cors": "^0.1.1",
-    "micro-nosniff": "^1.0.1",
-    "micro-ratelimit": "^0.4.0",
-    "microrouter": "^3.1.3",
     "mjml": "^4.5.1",
     "moment-timezone": "^0.5.27",
     "ramda": "^0.26.1",
     "sanitize-html": "^1.20.1",
     "sparkpost": "^2.1.4",
-    "urlencoded-body-parser": "^3.0.0",
     "validator": "^12.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
-    "@lingui/babel-plugin-transform-js": "^2.9.0",
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
@@ -52,10 +31,7 @@
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "micro-dev": "^3.0.0",
     "now": "^16.7.0",
-    "prettier": "^1.19.1",
-    "retire": "^2.0.3",
-    "test-listen": "^1.1.0"
+    "prettier": "^1.19.1"
   }
 }
