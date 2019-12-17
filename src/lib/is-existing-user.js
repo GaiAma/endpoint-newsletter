@@ -1,4 +1,4 @@
-const isExistingUser = ({ list, id, email }) => {
+export const isExistingUser = ({ list, id, email }) => {
   const user = list.recipients.find(
     x => x.metadata.id === id || x.address.email === email
   )
@@ -19,5 +19,3 @@ const isExistingUser = ({ list, id, email }) => {
     msg: `NOT_CONFIRMED`,
   }
 }
-
-export default isExistingUser

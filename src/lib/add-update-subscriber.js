@@ -9,7 +9,8 @@ import {
   path,
 } from 'ramda'
 import moment from 'moment'
-import { getList, isExistingUser } from './'
+import { getList } from './get-list.js'
+import { isExistingUser } from './is-existing-user.js'
 
 // const confirmSubscriber = ({ list }) => {
 //   const objToChange = R.find(R.propEq(`key`, 22 ))(list) // To find the object you like to change.

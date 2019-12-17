@@ -1,8 +1,16 @@
-import { send } from 'micro'
-import sanitizeText from './sanitize-text'
-import { addUpdateSubscriber } from '../api'
+import sanitizeText from '../lib/sanitize-text'
+import { addUpdateSubscriber } from '../lib/add-update-subscriber.js'
+import Sparkpost from 'sparkpost'
+import { i18n } from '@lingui/core'
+import localeEn from './locale/en/messages'
+import localeDe from './locale/de/messages'
 
-export default ({ spark, listPrefix }) => async (req, res) => {
+const spark = new Sparkpost()
+const listPrefix = `gaiama-newsletter`
+
+i18n.load({ en: localeEn, de: localeDe })
+
+export default async (req, res) => {
   const { id: _id, lang: _lang } = req.query
   const id = sanitizeText(_id)
   const lang = sanitizeText(decodeURIComponent(_lang))
@@ -27,13 +35,13 @@ export default ({ spark, listPrefix }) => async (req, res) => {
     })
 
     if (code !== 200) {
-      return send(res, code, { msg })
+      return res.status(code).json({ msg })
     }
 
     const Location = `https://www.gaiama.org/${lang}/?ref=subscribed`
     res.writeHead(302, { Location })
     return res.end()
   } catch (error) {
-    return send(res, 500, error)
+    return res.status(500).json(error)
   }
 }
