@@ -16,7 +16,7 @@ const languageStrings = {
 }
 
 const getActionLink = ({ id, lang, type }) =>
-  `https://gaiama-newsletter.now.sh/${type}/?id=${encodeURIComponent(
+  `https://gaiama-newsletter.now.sh/api/${type}/?id=${encodeURIComponent(
     id
   )}&lang=${encodeURIComponent(lang)}`
 
