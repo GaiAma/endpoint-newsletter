@@ -7,6 +7,7 @@ import localeDe from '../locale/de/messages'
 import sanitizeText from '../lib/sanitize-text'
 import { sendVerification } from '../lib/send-verification'
 import { addUpdateSubscriber } from '../lib/add-update-subscriber'
+import { middlewares } from '../lib/middlewares'
 
 const languageStrings = {
   en: localeEn,
@@ -18,7 +19,7 @@ const getActionLink = ({ id, lang, type }) =>
     id
   )}&lang=${encodeURIComponent(lang)}`
 
-export default async (req, res) => {
+export default middlewares(async (req, res) => {
 
   try {
     const { email, lang: _lang = `en` } = req.body
@@ -86,7 +87,7 @@ export default async (req, res) => {
   } catch (error) {
     return res.status(error.statusCode || 500).json({ msg: `ERROR`, error: error.msg })
   }
-}
+})
 
 function getTextEmail({ strings, confirmationLink, unsubscribeLink, lang }) {
   return `

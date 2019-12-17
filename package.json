@@ -7,7 +7,6 @@
   "license": "MIT",
   "scripts": {
     "local": "now dev --debug",
-    "transpile": "NODE_ENV=production babel src --out-dir .",
     "build": "echo 'DONE! 😎'",
     "deploy": "now -t $NOW_TOKEN --npm",
     "alias": "now alias -t $NOW_TOKEN",
@@ -16,7 +15,12 @@
   "dependencies": {
     "autolinker": "^3.11.1",
     "cuid": "^2.1.8",
+    "helmet": "^3.21.2",
     "mjml": "^4.5.1",
+    "micro": "^9.3.4",
+    "micro-cors": "^0.1.1",
+    "micro-nosniff": "^1.0.1",
+    "micro-ratelimit": "^0.4.0",
     "moment-timezone": "^0.5.27",
     "ramda": "^0.26.1",
     "sanitize-html": "^1.20.1",

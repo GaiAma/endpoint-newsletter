@@ -1,11 +1,12 @@
 import Sparkpost from 'sparkpost'
 import sanitizeText from '../lib/sanitize-text'
 import { addUpdateSubscriber } from '../lib/add-update-subscriber.js'
+import { middlewares } from '../lib/middlewares'
 
 const spark = new Sparkpost()
 const listPrefix = `gaiama-newsletter`
 
-export default async (req, res) => {
+export default middlewares(async function confirm(req, res) {
   try {
     const { id: _id, lang: _lang } = req.query
     const id = sanitizeText(_id)
@@ -39,4 +40,4 @@ export default async (req, res) => {
   } catch (error) {
     return res.status(error.statusCode || 500).json({ msg: `ERROR`, error: error.msg })
   }
-}
+})

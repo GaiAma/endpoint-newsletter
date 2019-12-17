@@ -3,13 +3,14 @@ import sanitizeText from './sanitize-text'
 import { getList } from './get-list.js'
 import { isExistingUser } from './is-existing-user.js'
 import Sparkpost from 'sparkpost'
+import { middlewares } from '../lib/middlewares'
 
 const spark = new Sparkpost()
 const listPrefix = `gaiama-newsletter`
 
 const removeByEmail = email => filter(x => x.address.email !== email)
 
-export default async function unsubscribe(req, res) {
+export default middlewares(async function unsubscribe(req, res) {
   try {
     const { id: _id, lang: _lang } = req.query
     const id = sanitizeText(_id)
@@ -35,4 +36,4 @@ export default async function unsubscribe(req, res) {
   } catch (error) {
     return res.status(error.statusCode || 500).json({ msg: `ERROR`, error: error.msg })
   }
-}
+})
