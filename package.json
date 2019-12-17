@@ -1,6 +1,6 @@
 {
   "name": "gaiama-endpoint-newsletter",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "Newsletter endpoint for GaiAma.org website",
   "main": "index.js",
   "author": "CanRau <cansrau@gmail.com>",
