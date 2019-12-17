@@ -1,5 +1,3 @@
-/api
-/lib
 /locale/_build
 /locale/**/*.js
 /*.js
