@@ -2,10 +2,10 @@ import { compose, trim } from 'ramda'
 import sanitizeHtml from 'sanitize-html'
 
 export const sanitizeText = compose(
-  str =>
+  (str: string): string =>
     sanitizeHtml(str, {
       allowedTags: [],
-      allowedAttributes: [],
+      allowedAttributes: {},
     }),
-  str => trim(`${str}`)
+  (str: string): string => trim(`${str}`)
 )

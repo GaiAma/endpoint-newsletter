@@ -8,9 +8,10 @@ import {
   eqBy,
   path,
 } from 'ramda'
+import Sparkpost, { Recipient } from 'sparkpost'
 import moment from 'moment'
-import { getList } from './get-list.js'
-import { isExistingUser } from './is-existing-user.js'
+import { getList } from './get-list'
+import { isExistingUser } from './is-existing-user'
 
 // const confirmSubscriber = ({ list }) => {
 //   const objToChange = R.find(R.propEq(`key`, 22 ))(list) // To find the object you like to change.
@@ -29,6 +30,21 @@ const confirmSubscriber = curry((id, items) =>
   )
 )
 
+type addUpdateSubscriberArgs = {
+  spark: Sparkpost
+  id: string
+  email?: string
+  lang: string
+  listId: string
+  confirmed: boolean
+}
+
+type result = {
+  code: number
+  msg: string
+  user?: Recipient
+}
+
 export const addUpdateSubscriber = async ({
   spark,
   lang,
@@ -36,11 +52,18 @@ export const addUpdateSubscriber = async ({
   listId,
   id,
   confirmed,
-}) => {
+}: addUpdateSubscriberArgs): Promise<result> => {
   try {
     const { results: list } = await getList({ spark, listId })
 
     const { user } = isExistingUser({ id, email, list })
+
+    if (!user && confirmed) {
+      return {
+        code: 409,
+        msg: `NON_EXISTENT_EMAIL`,
+      }
+    }
 
     if (user && !confirmed) {
       return {
@@ -50,30 +73,23 @@ export const addUpdateSubscriber = async ({
       }
     }
 
-    if (!user && confirmed) {
-      return {
-        code: 409,
-        msg: `NON_EXISTENT_EMAIL`,
-      }
-    }
+    const newRecipientList: Sparkpost.UpdateRecipientList = { recipients: [] }
 
-    const newRecipientList = {}
-
-    if (user && confirmed) {
+    if (user?.metadata?.id && confirmed) {
       newRecipientList.recipients = confirmSubscriber(
         user.metadata.id,
         list.recipients
       )
     }
 
-    if (!user && !confirmed) {
+    if (!user && !confirmed && email) {
       newRecipientList.recipients = unionWith(
         eqBy(path([`address`, `email`])),
         list.recipients,
         [
           {
             address: {
-              email: user ? user.address.email : email,
+              email,
             },
             metadata: {
               lang,
@@ -81,6 +97,7 @@ export const addUpdateSubscriber = async ({
               confirmed,
               date: moment.utc().format(),
             },
+            // eslint-disable-next-line @typescript-eslint/camelcase
             return_path: `newsletter@mail.gaiama.org`,
           },
         ]
@@ -89,7 +106,7 @@ export const addUpdateSubscriber = async ({
 
     await spark.recipientLists.update(listId, newRecipientList)
 
-    return { code: 200 }
+    return { code: 200, msg: `OK!` }
   } catch (error) {
     return { code: 500, msg: error }
   }

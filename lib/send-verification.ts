@@ -1,15 +1,27 @@
+import Sparkpost, { InlineContent } from 'sparkpost'
+
+interface SendVerificationArgs {
+  spark: Sparkpost
+  email: string
+  subject: string
+  messagePlainText: string
+  messageHtml: string
+}
+
 export const sendVerification = async ({
   spark,
   email,
   subject,
   messagePlainText,
   messageHtml,
-}) => {
+}: SendVerificationArgs): Promise<boolean> => {
   try {
     await spark.transmissions.send({
       options: {
+        /* eslint-disable @typescript-eslint/camelcase */
         open_tracking: false,
         click_tracking: false,
+        /* eslint-enable @typescript-eslint/camelcase */
         transactional: true,
       },
       content: {
@@ -20,7 +32,7 @@ export const sendVerification = async ({
         subject,
         text: messagePlainText,
         html: messageHtml,
-      },
+      } as InlineContent, // TODO: is it proper way?
       recipients: [
         {
           address: {
