@@ -8,7 +8,7 @@ import {
   eqBy,
   path,
 } from 'ramda'
-import Sparkpost, { Recipient } from 'sparkpost'
+import Sparkpost, { Recipient, UpdateRecipientList } from 'sparkpost'
 import moment from 'moment'
 import { getList } from './get-list'
 import { isExistingUser } from './is-existing-user'
@@ -73,7 +73,7 @@ export const addUpdateSubscriber = async ({
       }
     }
 
-    const newRecipientList: Sparkpost.UpdateRecipientList = { recipients: [] }
+    const newRecipientList: UpdateRecipientList = { recipients: [] }
 
     if (user?.metadata?.id && confirmed) {
       newRecipientList.recipients = confirmSubscriber(
