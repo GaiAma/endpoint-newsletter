@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.com/GaiAma/endpoint-newsletter.svg?branch=master)](https://travis-ci.com/GaiAma/endpoint-newsletter)
+![Build Status](https://img.shields.io/badge/dynamic/json?label=build%20status&query=%24.status&url=https%3A%2F%2Fapi.zeit.co%2Fv11%2Fnow%2Fdeployments%2Fget%3Furl%3Dgaiama-endpoint-newsletter&logo=zeit&labelColor=000&color=informational)
