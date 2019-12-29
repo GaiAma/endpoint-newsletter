@@ -1,4 +1,4 @@
-{
+export default {
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:@typescript-eslint/recommended",
@@ -9,5 +9,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {
+      "@typescript-eslint/no-explicit-any": 0,
+  }
 }
