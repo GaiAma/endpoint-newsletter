@@ -7,9 +7,7 @@ const noop = (): void => {}
 
 const microHelmet = (handler: HandlerInterface) => (
   // TODO: using <any> instead of proper NowRequest/NowResponse for now as helmet expects Request<ParamsDictionary, any, any>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   req: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   res: any
 ): Promise<NowResponse | void> => {
   helmet({
