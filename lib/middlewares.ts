@@ -8,9 +8,8 @@ import enforceHeaders from './enforce-headers'
 const isDev = process.env.NODE_ENV === `development`
 
 // TODO: find better way
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const compose = (...fns: Array<(...a: any[]) => any>): Function =>
-  fns.reduce((f, g) => (...xs: Array<(...a: any[]) => any>): Function => {
+const compose = (...fns: Array<Function>): Function =>
+  fns.reduce((f, g) => (...xs: Array<Function>): Function => {
     const r = g(...xs)
     return Array.isArray(r) ? f(...r) : f(r)
   })
