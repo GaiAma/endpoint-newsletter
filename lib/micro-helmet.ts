@@ -2,7 +2,6 @@ import { NowResponse } from '@now/node'
 import { HandlerInterface } from '../types/handler'
 import helmet from 'helmet'
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = (): void => {}
 
 const microHelmet = (handler: HandlerInterface) => (
