@@ -1,4 +1,5 @@
-import { compose, trim } from 'ramda'
+import compose from 'ramda/src/compose'
+import trim from 'ramda/src/trim'
 import sanitizeHtml from 'sanitize-html'
 
 export const sanitizeText = compose(

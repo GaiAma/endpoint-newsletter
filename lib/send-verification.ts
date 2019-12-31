@@ -18,10 +18,8 @@ export const sendVerification = async ({
   try {
     await spark.transmissions.send({
       options: {
-        /* eslint-disable @typescript-eslint/camelcase */
         open_tracking: false,
         click_tracking: false,
-        /* eslint-enable @typescript-eslint/camelcase */
         transactional: true,
       },
       content: {

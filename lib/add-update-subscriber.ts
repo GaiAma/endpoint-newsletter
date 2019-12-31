@@ -1,13 +1,11 @@
-import {
-  curry,
-  map,
-  when,
-  pathEq,
-  assocPath,
-  unionWith,
-  eqBy,
-  path,
-} from 'ramda'
+import curry from 'ramda/src/curry'
+import map from 'ramda/src/map'
+import when from 'ramda/src/when'
+import pathEq from 'ramda/src/pathEq'
+import assocPath from 'ramda/src/assocPath'
+import unionWith from 'ramda/src/unionWith'
+import eqBy from 'ramda/src/eqBy'
+import path from 'ramda/src/path'
 import Sparkpost, { Recipient, UpdateRecipientList } from 'sparkpost'
 import moment from 'moment'
 import { getList } from './get-list'
@@ -97,7 +95,6 @@ export const addUpdateSubscriber = async ({
               confirmed,
               date: moment.utc().format(),
             },
-            // eslint-disable-next-line @typescript-eslint/camelcase
             return_path: `newsletter@mail.gaiama.org`,
           },
         ]
