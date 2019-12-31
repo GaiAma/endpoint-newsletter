@@ -11,7 +11,8 @@
     "deploy": "now -t $NOW_TOKEN --npm",
     "alias": "now alias -t $NOW_TOKEN",
     "now:cleanup": "now rm gaiama-endpoint-newsletter --safe --yes",
-    "lint": "eslint '{api,lib}/**/*.{js,jsx,ts,tsx}'"
+    "lint": "eslint '{api,lib}/**/*.{js,jsx,ts,tsx}'",
+    "test": "nyc ava"
   },
   "dependencies": {
     "autolinker": "^3.11.1",
@@ -37,8 +38,10 @@
     "@types/moment": "^2.13.0",
     "@types/moment-timezone": "^0.5.12",
     "@types/ramda": "^0.26.39",
+    "@types/request-promise": "^4.1.45",
     "@types/sanitize-html": "^1.20.2",
     "@types/sparkpost": "^2.1.4",
+    "@types/test-listen": "^1.1.0",
     "@types/validator": "^12.0.1",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
@@ -46,8 +49,24 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "got": "^10.2.0",
+    "nock": "^11.7.0",
     "now": "^16.7.1-canary.4",
+    "nyc": "^15.0.0",
     "prettier": "^1.19.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "test-listen": "^1.1.0",
+    "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }
