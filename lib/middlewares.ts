@@ -1,4 +1,6 @@
+import { NowRequest, NowResponse } from '@now/node';
 import { HandlerInterface } from '../types/handler';
+import { send } from 'micro';
 import microCors from 'micro-cors';
 import microHelmet from './micro-helmet';
 import refuseBots from './refuse-bots';
@@ -13,10 +15,22 @@ const compose = (...fns: Array<Function>): Function =>
     return Array.isArray(r) ? f(...r) : f(r);
   });
 
+// only needed until v1 lands https://github.com/possibilities/micro-cors
+const handlePreflightRequest = (handler: HandlerInterface) => (
+  req: NowRequest,
+  res: NowResponse
+): Promise<NowResponse | void> => {
+  if (req.method === `OPTIONS`) {
+    return send(res, 200, `ok!`);
+  }
+  return handler(req, res);
+};
+
 export const middlewares = isDev
   ? (handler: HandlerInterface): HandlerInterface => handler
   : (handler: HandlerInterface): HandlerInterface =>
       compose(
+        handlePreflightRequest,
         microHelmet,
         microCors({
           allowMethods: [`OPTIONS`, `GET`, `PATCH`],

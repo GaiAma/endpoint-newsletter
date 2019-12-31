@@ -11,10 +11,6 @@ const listPrefix = `gaiama-newsletter`;
 export default middlewares(
   async (req: NowRequest, res: NowResponse): Promise<NowResponse | void> => {
     try {
-      if (req.method === `OPTIONS`) {
-        return send(res, 200, `ok!`);
-      }
-
       const _id = Array.isArray(req.query.id) ? req.query.id[0] : req.query.id;
       const _lang = Array.isArray(req.query.lang)
         ? req.query.lang[0]

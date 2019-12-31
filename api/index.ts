@@ -38,10 +38,6 @@ const getActionLink = ({ id, lang, type }: ActionLink) =>
 export default middlewares(
   async (req: NowRequest, res: NowResponse): Promise<NowResponse | void> => {
     try {
-      if (req.method === `OPTIONS`) {
-        return send(res, 200, `ok!`);
-      }
-
       const { email, lang: _lang = `en` } = req.body;
 
       const lang: string = sanitizeText(_lang);
