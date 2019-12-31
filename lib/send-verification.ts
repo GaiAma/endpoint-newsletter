@@ -1,6 +1,6 @@
 import Sparkpost, { InlineContent } from 'sparkpost'
 
-interface SendVerificationArgs {
+type SendVerificationArgs = {
   spark: Sparkpost
   email: string
   subject: string

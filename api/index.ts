@@ -11,21 +11,10 @@ import { sendVerification } from '../lib/send-verification'
 import { addUpdateSubscriber } from '../lib/add-update-subscriber'
 import { middlewares } from '../lib/middlewares'
 
-type messageKeys =
-  | `subject`
-  | `title`
-  | `note`
-  | `privacyUrl`
-  | `legalUrl`
-  | `ctaLabel`
-  | `orCopy`
-  | `unsubscribe`
-  | `privacyTitle`
-  | `legalTitle`
 type messageObject = {
   [key: string]: string
 }
-type languageKeys = `en` | `de`
+
 type languageObject = {
   [key: string]: messageObject
 }
