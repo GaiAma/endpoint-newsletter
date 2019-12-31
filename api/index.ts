@@ -1,64 +1,64 @@
-import { NowRequest, NowResponse } from '@now/node'
-import { send } from 'micro'
-import cuid from 'cuid'
-import mjml2html from 'mjml'
-import isEmail from 'validator/lib/isEmail'
-import Sparkpost from 'sparkpost'
-import * as localeEn from '../locale/en/messages.json'
-import * as localeDe from '../locale/de/messages.json'
-import { sanitizeText } from '../lib/sanitize-text'
-import { sendVerification } from '../lib/send-verification'
-import { addUpdateSubscriber } from '../lib/add-update-subscriber'
-import { middlewares } from '../lib/middlewares'
+import { NowRequest, NowResponse } from '@now/node';
+import { send } from 'micro';
+import cuid from 'cuid';
+import mjml2html from 'mjml';
+import isEmail from 'validator/lib/isEmail';
+import Sparkpost from 'sparkpost';
+import * as localeEn from '../locale/en/messages.json';
+import * as localeDe from '../locale/de/messages.json';
+import { sanitizeText } from '../lib/sanitize-text';
+import { sendVerification } from '../lib/send-verification';
+import { addUpdateSubscriber } from '../lib/add-update-subscriber';
+import { middlewares } from '../lib/middlewares';
 
 type messageObject = {
-  [key: string]: string
-}
+  [key: string]: string;
+};
 
 type languageObject = {
-  [key: string]: messageObject
-}
+  [key: string]: messageObject;
+};
 
 const languageStrings: languageObject = {
   en: localeEn,
   de: localeDe,
-}
+};
 
 type ActionLink = {
-  id: string
-  lang: string
-  type: string
-}
+  id: string;
+  lang: string;
+  type: string;
+};
 
 const getActionLink = ({ id, lang, type }: ActionLink) =>
   `https://gaiama-newsletter.now.sh/api/${type}/?id=${encodeURIComponent(
     id
-  )}&lang=${encodeURIComponent(lang)}`
+  )}&lang=${encodeURIComponent(lang)}`;
 
 export default middlewares(
   async (req: NowRequest, res: NowResponse): Promise<NowResponse | void> => {
     try {
       if (req.method === `OPTIONS`) {
-        return send(res, 200, `ok!`)
+        return send(res, 200, `ok!`);
       }
 
-      const { email, lang: _lang = `en` } = req.body
+      const { email, lang: _lang = `en` } = req.body;
 
-      const lang: string = sanitizeText(_lang)
+      const lang: string = sanitizeText(_lang);
       if (![`de`, `en`].includes(lang)) {
-        return send(res, 400, { msg: `UNSUPPORTED_LANGUAGE` })
+        return send(res, 400, { msg: `UNSUPPORTED_LANGUAGE` });
       }
-      const strings: messageObject = languageStrings[lang]
+      const strings: messageObject = languageStrings[lang];
 
       if (!isEmail(email)) {
-        return send(res, 400, { msg: `MALFORMED_EMAIL` })
+        return send(res, 400, { msg: `MALFORMED_EMAIL` });
       }
 
-      const spark = new Sparkpost()
-      const listPrefix = `gaiama-newsletter`
+      const spark = new Sparkpost();
+      const listPrefix = `gaiama-newsletter`;
 
-      const listId = `${listPrefix}-${lang}`
-      let id: string = cuid()
+      const listId = `${listPrefix}-${lang}`;
+      let id: string = cuid();
 
       const { msg, code, user } = await addUpdateSubscriber({
         spark,
@@ -67,18 +67,18 @@ export default middlewares(
         email,
         lang,
         confirmed: false,
-      })
+      });
 
       if (code !== 200 && msg !== `NOT_CONFIRMED`) {
-        return send(res, code, { msg })
+        return send(res, code, { msg });
       }
 
       if (user?.metadata?.id) {
-        id = user.metadata.id
+        id = user.metadata.id;
       }
 
-      const confirmationLink = getActionLink({ id, lang, type: `confirm` })
-      const unsubscribeLink = getActionLink({ id, lang, type: `unsubscribe` })
+      const confirmationLink = getActionLink({ id, lang, type: `confirm` });
+      const unsubscribeLink = getActionLink({ id, lang, type: `unsubscribe` });
 
       const verificationResult = await sendVerification({
         spark,
@@ -96,27 +96,27 @@ export default middlewares(
           confirmationLink,
           unsubscribeLink,
         }),
-      })
+      });
 
       if (verificationResult !== true) {
-        throw new Error(`ERROR_SENDIND_VERIFICATION`)
+        throw new Error(`ERROR_SENDIND_VERIFICATION`);
       }
 
-      return send(res, 200, { msg: `OK` })
+      return send(res, 200, { msg: `OK` });
     } catch (error) {
       return send(res, error.statusCode || 500, {
         msg: `ERROR`,
         error: error.msg,
-      })
+      });
     }
   }
-)
+);
 
 interface emailArgs {
-  strings: messageObject
-  confirmationLink: string
-  unsubscribeLink: string
-  lang: string
+  strings: messageObject;
+  confirmationLink: string;
+  unsubscribeLink: string;
+  lang: string;
 }
 
 function getTextEmail({
@@ -131,7 +131,7 @@ function getTextEmail({
     ${strings.note}\n
     ${unsubscribeLink}\n\n\n
     https://www.gaiama.org/${lang}/ | ${strings.privacyUrl} | ${strings.legalUrl}
-  `
+  `;
 }
 
 function getHtmlEmail({
@@ -206,11 +206,11 @@ function getHtmlEmail({
     </mjml>
   `,
     { minify: true }
-  )
+  );
 
   if (errors.length) {
-    throw new Error(JSON.stringify(errors, null, 2))
+    throw new Error(JSON.stringify(errors, null, 2));
   }
 
-  return html
+  return html;
 }

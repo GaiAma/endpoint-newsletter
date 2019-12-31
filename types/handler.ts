@@ -1,5 +1,5 @@
-import { NowRequest, NowResponse } from '@now/node'
+import { NowRequest, NowResponse } from '@now/node';
 
 export interface HandlerInterface {
-  (req: NowRequest, res: NowResponse): Promise<NowResponse | void>
+  (req: NowRequest, res: NowResponse): Promise<NowResponse | void>;
 }

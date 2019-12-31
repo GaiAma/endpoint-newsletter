@@ -1,17 +1,17 @@
-import { HandlerInterface } from '../types/handler'
-import microCors from 'micro-cors'
-import microHelmet from './micro-helmet'
-import refuseBots from './refuse-bots'
-import enforceHeaders from './enforce-headers'
+import { HandlerInterface } from '../types/handler';
+import microCors from 'micro-cors';
+import microHelmet from './micro-helmet';
+import refuseBots from './refuse-bots';
+import enforceHeaders from './enforce-headers';
 // import ratelimit from 'micro-ratelimit'
 
-const isDev = process.env.NODE_ENV === `development`
+const isDev = process.env.NODE_ENV === `development`;
 
 const compose = (...fns: Array<Function>): Function =>
   fns.reduce((f, g) => (...xs: Array<Function>): Function => {
-    const r = g(...xs)
-    return Array.isArray(r) ? f(...r) : f(r)
-  })
+    const r = g(...xs);
+    return Array.isArray(r) ? f(...r) : f(r);
+  });
 
 export const middlewares = isDev
   ? (handler: HandlerInterface): HandlerInterface => handler
@@ -29,4 +29,4 @@ export const middlewares = isDev
         //   limit: 2,
         //   headers: true,
         // })
-      )(handler)
+      )(handler);

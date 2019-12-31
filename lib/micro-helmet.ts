@@ -1,8 +1,8 @@
-import { NowResponse } from '@now/node'
-import { HandlerInterface } from '../types/handler'
-import helmet from 'helmet'
+import { NowResponse } from '@now/node';
+import { HandlerInterface } from '../types/handler';
+import helmet from 'helmet';
 
-const noop = (): void => {}
+const noop = (): void => {};
 
 const microHelmet = (handler: HandlerInterface) => (
   // TODO: using <any> instead of proper NowRequest/NowResponse for now as helmet expects Request<ParamsDictionary, any, any>
@@ -22,9 +22,9 @@ const microHelmet = (handler: HandlerInterface) => (
     referrerPolicy: {
       policy: `no-referrer`,
     },
-  })(req, res, noop)
+  })(req, res, noop);
 
-  return handler(req, res)
-}
+  return handler(req, res);
+};
 
-export default microHelmet
+export default microHelmet;

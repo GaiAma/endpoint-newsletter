@@ -1,12 +1,12 @@
-import Sparkpost, { InlineContent } from 'sparkpost'
+import Sparkpost, { InlineContent } from 'sparkpost';
 
 type SendVerificationArgs = {
-  spark: Sparkpost
-  email: string
-  subject: string
-  messagePlainText: string
-  messageHtml: string
-}
+  spark: Sparkpost;
+  email: string;
+  subject: string;
+  messagePlainText: string;
+  messageHtml: string;
+};
 
 export const sendVerification = async ({
   spark,
@@ -38,10 +38,10 @@ export const sendVerification = async ({
           },
         },
       ],
-    })
+    });
 
-    return true
+    return true;
   } catch (error) {
-    return error.msg
+    return error.msg;
   }
-}
+};

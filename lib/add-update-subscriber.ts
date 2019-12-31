@@ -1,15 +1,15 @@
-import curry from 'ramda/src/curry'
-import map from 'ramda/src/map'
-import when from 'ramda/src/when'
-import pathEq from 'ramda/src/pathEq'
-import assocPath from 'ramda/src/assocPath'
-import unionWith from 'ramda/src/unionWith'
-import eqBy from 'ramda/src/eqBy'
-import path from 'ramda/src/path'
-import Sparkpost, { Recipient, UpdateRecipientList } from 'sparkpost'
-import moment from 'moment'
-import { getList } from './get-list'
-import { isExistingUser } from './is-existing-user'
+import curry from 'ramda/src/curry';
+import map from 'ramda/src/map';
+import when from 'ramda/src/when';
+import pathEq from 'ramda/src/pathEq';
+import assocPath from 'ramda/src/assocPath';
+import unionWith from 'ramda/src/unionWith';
+import eqBy from 'ramda/src/eqBy';
+import path from 'ramda/src/path';
+import Sparkpost, { Recipient, UpdateRecipientList } from 'sparkpost';
+import moment from 'moment';
+import { getList } from './get-list';
+import { isExistingUser } from './is-existing-user';
 
 // const confirmSubscriber = ({ list }) => {
 //   const objToChange = R.find(R.propEq(`key`, 22 ))(list) // To find the object you like to change.
@@ -26,22 +26,22 @@ const confirmSubscriber = curry((id, items) =>
     ),
     items
   )
-)
+);
 
 type addUpdateSubscriberArgs = {
-  spark: Sparkpost
-  id: string
-  email?: string
-  lang: string
-  listId: string
-  confirmed: boolean
-}
+  spark: Sparkpost;
+  id: string;
+  email?: string;
+  lang: string;
+  listId: string;
+  confirmed: boolean;
+};
 
 type result = {
-  code: number
-  msg: string
-  user?: Recipient
-}
+  code: number;
+  msg: string;
+  user?: Recipient;
+};
 
 export const addUpdateSubscriber = async ({
   spark,
@@ -52,15 +52,15 @@ export const addUpdateSubscriber = async ({
   confirmed,
 }: addUpdateSubscriberArgs): Promise<result> => {
   try {
-    const { results: list } = await getList({ spark, listId })
+    const { results: list } = await getList({ spark, listId });
 
-    const { user } = isExistingUser({ id, email, list })
+    const { user } = isExistingUser({ id, email, list });
 
     if (!user && confirmed) {
       return {
         code: 409,
         msg: `NON_EXISTENT_EMAIL`,
-      }
+      };
     }
 
     if (user && !confirmed) {
@@ -68,16 +68,16 @@ export const addUpdateSubscriber = async ({
         user,
         code: 409,
         msg: `NOT_CONFIRMED`,
-      }
+      };
     }
 
-    const newRecipientList: UpdateRecipientList = { recipients: [] }
+    const newRecipientList: UpdateRecipientList = { recipients: [] };
 
     if (user?.metadata?.id && confirmed) {
       newRecipientList.recipients = confirmSubscriber(
         user.metadata.id,
         list.recipients
-      )
+      );
     }
 
     if (!user && !confirmed && email) {
@@ -98,13 +98,13 @@ export const addUpdateSubscriber = async ({
             return_path: `newsletter@mail.gaiama.org`,
           },
         ]
-      )
+      );
     }
 
-    await spark.recipientLists.update(listId, newRecipientList)
+    await spark.recipientLists.update(listId, newRecipientList);
 
-    return { code: 200, msg: `OK!` }
+    return { code: 200, msg: `OK!` };
   } catch (error) {
-    return { code: 500, msg: error }
+    return { code: 500, msg: error };
   }
-}
+};
