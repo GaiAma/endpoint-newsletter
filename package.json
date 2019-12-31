@@ -10,7 +10,8 @@
     "build": "echo 'DONE! 😎'",
     "deploy": "now -t $NOW_TOKEN --npm",
     "alias": "now alias -t $NOW_TOKEN",
-    "now:cleanup": "now rm gaiama-endpoint-newsletter --safe --yes"
+    "now:cleanup": "now rm gaiama-endpoint-newsletter --safe --yes",
+    "lint": "eslint '{api,lib}/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
     "autolinker": "^3.11.1",

@@ -8,13 +8,11 @@ import enforceHeaders from './enforce-headers'
 const isDev = process.env.NODE_ENV === `development`
 
 // TODO: find better way
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const compose = (...fns: Array<(...a: any[]) => any>): Function =>
   fns.reduce((f, g) => (...xs: Array<(...a: any[]) => any>): Function => {
     const r = g(...xs)
     return Array.isArray(r) ? f(...r) : f(r)
   })
-/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export const middlewares = isDev
   ? (handler: HandlerInterface): HandlerInterface => handler

@@ -97,7 +97,6 @@ export const addUpdateSubscriber = async ({
               confirmed,
               date: moment.utc().format(),
             },
-            // eslint-disable-next-line @typescript-eslint/camelcase
             return_path: `newsletter@mail.gaiama.org`,
           },
         ]
