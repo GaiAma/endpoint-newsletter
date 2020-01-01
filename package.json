@@ -12,7 +12,8 @@
     "alias": "now alias -t $NOW_TOKEN",
     "now:cleanup": "now rm gaiama-endpoint-newsletter --safe --yes",
     "lint": "eslint '{api,lib}/**/*.{js,jsx,ts,tsx}'",
-    "test": "nyc ava"
+    "test": "ava --verbose",
+    "test:coverage": "nyc ava"
   },
   "dependencies": {
     "autolinker": "^3.11.1",
