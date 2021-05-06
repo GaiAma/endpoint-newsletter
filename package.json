@@ -24,7 +24,7 @@
     "mjml": "^4.5.1",
     "moment-timezone": "^0.5.27",
     "ramda": "^0.26.1",
-    "sanitize-html": "^1.20.1",
+    "sanitize-html": "^2.3.2",
     "sparkpost": "^2.1.4",
     "validator": "^12.1.0"
   },
