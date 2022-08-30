@@ -22,7 +22,7 @@
     "micro-nosniff": "^1.0.1",
     "micro-ratelimit": "^0.4.0",
     "mjml": "^4.5.1",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "ramda": "^0.26.1",
     "sanitize-html": "^1.20.1",
     "sparkpost": "^2.1.4",
